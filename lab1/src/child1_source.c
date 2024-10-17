@@ -21,7 +21,7 @@ int main(int argsc, char** args){
                 write(STDERR_FILENO, msg, sizeof(msg));
                 exit(EXIT_FAILURE);
             }
-            _exit(0);
+            exit(0);
         }
         if (bytes < 0) {
 			const char msg[] = "error: failed to read from stdin\n";

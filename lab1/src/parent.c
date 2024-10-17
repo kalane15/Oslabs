@@ -10,28 +10,46 @@
 
 int main()
 {
-    char path1[4096] = "/media/sf_univer/OSlabs/lab1 var12/child1";
-    char path2[4096] = "/media/sf_univer/OSlabs/lab1 var12/child2";
+    char path1[4096] = "child1";
+    char path2[4096] = "child2";
     int p1[2];
     int p2[2];
     int p_childrens[2];
-    pipe(p1); // [1] - запись [0] - чтение
-    pipe(p2);
-    pipe(p_childrens);
+    if (pipe(p1) != 0){
+        perror("FAiled to open pipe\n");
+        exit(EXIT_FAILURE);
+    } // [1] - запись [0] - чтение
+    if (pipe(p2) != 0){
+        perror("FAiled to open pipe\n");
+        exit(EXIT_FAILURE);
+    } 
+    if (pipe(p_childrens) != 0){
+        perror("FAiled to open pipe\n");
+        exit(EXIT_FAILURE);
+    } 
 
     pid_t child1 = fork();
     int status;
     int res_status;
     if (child1 == -1)
     {
+        perror("Failed to fork\n");
         exit(EXIT_FAILURE);
     }
 
     if (child1 == 0)
     {
         // child
-        dup2(p1[0], STDIN_FILENO);
-        dup2(p_childrens[1], STDOUT_FILENO);
+        if (dup2(p1[0], STDIN_FILENO) == -1){
+            perror("Failed to dup\n");
+            exit(EXIT_FAILURE);
+        }
+        if (dup2(p_childrens[1], STDOUT_FILENO) == -1){
+            perror("Failed to dup\n");
+            exit(EXIT_FAILURE);
+        }
+        close(p1[0]);
+        close(p_childrens[1]);
 
         char *args[] = {NULL};
         status = execv(path1, args);
@@ -47,16 +65,29 @@ int main()
     {
         //
         // parent
-
         pid_t child2 = fork();
         if (child2 == -1)
         {
+            kill(child1, SIGKILL);
             exit(EXIT_FAILURE);
         }
         if (child2 == 0)
         {
-            dup2(p_childrens[0], STDIN_FILENO);
-            dup2(p2[1], STDOUT_FILENO);
+            if (dup2(p_childrens[0], STDIN_FILENO) == -1)
+            {
+                kill(child1, SIGKILL);
+                perror("Failed to dup\n");
+                exit(EXIT_FAILURE);
+            }
+            if (dup2(p2[1], STDOUT_FILENO) == -1)
+            {
+                kill(child1, SIGKILL);
+                perror("Failed to dup\n");
+                exit(EXIT_FAILURE);
+            }
+           close(p_childrens[0]);
+           close(p2[1]);
+           
             char *args[] = {NULL};
             status = execv(path2, args);
 
@@ -91,12 +122,18 @@ int main()
 
                 // fprintf(stderr, "p %s", input_string);
                 input_string[n_inp - 1] = '\0';
-                write(p1[1], input_string, n_inp);
+                int really_written = write(p1[1], input_string, n_inp);
 
+                if (really_written != n_inp){
+                    perror("Failed to write to pipe\n");
+                    kill(child1, SIGKILL);
+                    kill(child2, SIGKILL);
+                    exit(EXIT_FAILURE);
+                }
                 // fprintf(stderr, "wait");
                 n_out = read(p2[0], output_string, sizeof(output_string));
                 // fprintf(stderr, "parent read %s end", output_string);
-                int really_written = write(STDOUT_FILENO, output_string, n_out);
+                really_written = write(STDOUT_FILENO, output_string, n_out);
                 char temp = '\n';
 
                 if (really_written != n_out ||  write(STDOUT_FILENO, &temp, 1) != 1)
