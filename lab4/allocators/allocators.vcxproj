@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="allocators.cpp" />
+    <ClCompile Include="buddy_allocator.cpp" />
     <ClCompile Include="list_allocator.cpp" />
   </ItemGroup>
   <ItemGroup>

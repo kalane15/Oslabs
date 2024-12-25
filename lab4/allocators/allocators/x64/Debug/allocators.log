@@ -1,2 +1,6 @@
 ﻿  allocators.cpp
+  buddy_allocator.cpp
+  Создание кода...
+D:\univer\OSlabs\lab4\allocators\buddy_allocator.cpp(113,31): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
+D:\univer\OSlabs\lab4\allocators\buddy_allocator.cpp(123,18): warning C4101: result_block: неиспользованная локальная переменная
   allocators.vcxproj -> D:\univer\OSlabs\lab4\allocators\x64\Debug\allocators.exe

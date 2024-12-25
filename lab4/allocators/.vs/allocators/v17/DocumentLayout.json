@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\univer\\OSlabs\\lab4\\allocators\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6F2BE3DB-5AF4-4E7C-83F3-BD95C1996CF3}|allocators.vcxproj|D:\\univer\\OSlabs\\lab4\\allocators\\buddy_allocator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6F2BE3DB-5AF4-4E7C-83F3-BD95C1996CF3}|allocators.vcxproj|solutionrelative:buddy_allocator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6F2BE3DB-5AF4-4E7C-83F3-BD95C1996CF3}|allocators.vcxproj|D:\\univer\\OSlabs\\lab4\\allocators\\allocators.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6F2BE3DB-5AF4-4E7C-83F3-BD95C1996CF3}|allocators.vcxproj|solutionrelative:allocators.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -22,43 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "buddy_allocator.cpp",
+              "DocumentMoniker": "D:\\univer\\OSlabs\\lab4\\allocators\\buddy_allocator.cpp",
+              "RelativeDocumentMoniker": "buddy_allocator.cpp",
+              "ToolTip": "D:\\univer\\OSlabs\\lab4\\allocators\\buddy_allocator.cpp",
+              "RelativeToolTip": "buddy_allocator.cpp",
+              "ViewState": "AQIAAIgAAAAAAAAAAAAUwJgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-25T10:59:47.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "list_allocator.h",
               "DocumentMoniker": "D:\\univer\\OSlabs\\lab4\\allocators\\list_allocator.h",
               "RelativeDocumentMoniker": "list_allocator.h",
               "ToolTip": "D:\\univer\\OSlabs\\lab4\\allocators\\list_allocator.h",
               "RelativeToolTip": "list_allocator.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-23T06:48:18.832Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "list_allocator.cpp",
               "DocumentMoniker": "D:\\univer\\OSlabs\\lab4\\allocators\\list_allocator.cpp",
               "RelativeDocumentMoniker": "list_allocator.cpp",
               "ToolTip": "D:\\univer\\OSlabs\\lab4\\allocators\\list_allocator.cpp",
               "RelativeToolTip": "list_allocator.cpp",
-              "ViewState": "AQIAAHcAAAAAAAAAAAAgwIQAAAAJAAAA",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAAF0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-22T10:43:36.534Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "allocators.cpp",
               "DocumentMoniker": "D:\\univer\\OSlabs\\lab4\\allocators\\allocators.cpp",
               "RelativeDocumentMoniker": "allocators.cpp",
               "ToolTip": "D:\\univer\\OSlabs\\lab4\\allocators\\allocators.cpp",
               "RelativeToolTip": "allocators.cpp",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAIwBUAAAATAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-22T10:42:56.902Z",
               "EditorCaption": ""
